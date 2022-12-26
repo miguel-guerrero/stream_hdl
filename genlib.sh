@@ -3,7 +3,12 @@
 PP="../pppl/pp.pl -I .. -d ../gen -q"
 AUTOEXP="../vlog_expand_autos/vlog_expand_autos.pl"
 
-pushd lib
+if [ -d ./gen ]; then
+    rm -rf ./gen
+fi
+mkdir ./gen
+
+pushd lib || { echo "ERROR: cannot cd to lib"; exit 1; }
 $PP pp.buffer.v -p fifo_depth=2
 $PP pp.buffer.v -p fifo_depth=10
 $PP pp.range.v 
@@ -45,6 +50,8 @@ $PP  pp.dup.v
 $PP -p n="2"  pp.converge_flags_template.v
 $PP -p n="3"  pp.converge_flags_template.v
 $PP -p n=3  pp.one_to_many_template.v
+$PP pp.data_mem.v
+$PP pp.data_mem_be.v
 popd
 
 pushd gen

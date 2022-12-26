@@ -19,3 +19,5 @@ pushd scripts/grammar
     make clean
     make build
 popd
+
+./genlib.sh
