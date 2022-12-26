@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PP="../../pppl/pp.pl -I .. -d ../gen -q"
-AUTOEXP="../../vlog_expand_autos/vlog_expand_autos.pl"
+PP="../pppl/pp.pl -I .. -d ../gen -q"
+AUTOEXP="../vlog_expand_autos/vlog_expand_autos.pl"
 
 pushd lib
 $PP pp.buffer.v -p fifo_depth=2

@@ -1,3 +1,6 @@
 [submodule "vlog_expand_autos"]
 	path = vlog_expand_autos
 	url = https://github.com/miguel-guerrero/vlog_expand_autos.git
+[submodule "pppl"]
+	path = pppl
+	url = https://github.com/miguel-guerrero/pppl.git

@@ -1,6 +1,6 @@
-PP ?= ../../../pppl/pp.pl
+PP ?= ../../pppl/pp.pl
 PP_OPTS ?= -q -ips dbg.pl
-AUTOEXP ?= ../../../vlog_expand_autos/vlog_expand_autos.pl
+AUTOEXP ?= ../../vlog_expand_autos/vlog_expand_autos.pl
 S2V ?= ../../scripts/s2v.py
 S2V_OPTS ?= 
 CLEAN_MORE ?=
@@ -25,7 +25,7 @@ test: $(TARGETS) $(LIB)
 	$(SIM) | tee run.log
 
 clean: $(CLEAN_MORE)
-	$(RM) $(TARGETS) dbg.pl *run.log sim.x *.vcd
+	$(RM) $(TARGETS) pp_out_tmp_*.pl dbg.pl *run.log sim.x *.vcd
 
 .PHONY: clean
 
