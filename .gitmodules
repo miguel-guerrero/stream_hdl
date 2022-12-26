@@ -1,0 +1,3 @@
+[submodule "vlog_expand_autos"]
+	path = vlog_expand_autos
+	url = https://github.com/miguel-guerrero/vlog_expand_autos.git
