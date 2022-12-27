@@ -4,40 +4,37 @@ An experimental HDL where everything is a stream of data.
 
 ## Introduction
 
-This tool provides an alternative to entering pipelined designs
+This tool provides an alternative to entering pipelined designs. A design consists of a set of streams. Streams are defined between operators. 
+Each stream carries a set of flags.
 
-A design consists of a set of streams. Streams are defined between operators
+* from upstream/master to downstream/slave
 
-Each stream carries a set of flags
+  * flags AFLV
 
-from upstream/master to downstream/slave
+     * A = Abort
+     * F = First
+     * L = Last
+     * V = Valid
 
-flags AFLV
+* from downstream/slave to upstream/master 
+  * AB
 
-A = Abort
-F = First
-L = Last
-V = Valid
+    * A = Abort
+    * B = Busy
 
-from downstream/slave to upstream/master AB
-
-A = Abort
-B = Busy
-
-each operator handles slave flags and should obey its intent to flow
+Each operator handles slave flags and should obey its intent to flow
 control upstream operators.
 
 First and Last allow the stream to delimit specific segments of data
 
-type of streams
+## Type of streams
 
-    input: input stream with provided mflags but no sflags (cannot be flow controlled back)
-    output: 
+   * input: input stream with provided mflags but no sflags (cannot be flow controlled back)
+   * output: 
 
-    sin: input stream with master/slave flags
-    sout: output stream with master/slave flags
-
-    hstr: harcoded stream with flags harcoded as AFLV=0111 and AB=00
+     * `sin`: input stream with master/slave flags
+     * `sout`: output stream with master/slave flags
+     * `hstr`: harcoded stream with flags harcoded as AFLV=0111 and AB=00
 
 
 ## Dependencies
