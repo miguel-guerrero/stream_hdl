@@ -20,4 +20,5 @@ pushd scripts/grammar
     make build
 popd
 
+echo "Generating sample library elements"
 ./genlib.sh
